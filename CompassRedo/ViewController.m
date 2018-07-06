@@ -21,7 +21,12 @@
     // Do any additional setup after loading the view, typically from a nib.
     //self.yourLocation = [[CLLocation alloc] initWithLatitude:90.0 longitude:0.0]; // North pole
     //self.yourLocation = [[CLLocation alloc] initWithLatitude:27.70179990 longitude:85.31950601]; // Kathmandu
-    self.yourLocation = [[CLLocation alloc] initWithLatitude:40.753603 longitude:-73.990502]; // New York
+    //self.yourLocation = [[CLLocation alloc] initWithLatitude:-37.710522 longitude:144.925916]; // Melbourne
+    //self.yourLocation = [[CLLocation alloc] initWithLatitude:-76.461194 longitude:27.043448]; // Antarctic
+    //self.yourLocation = [[CLLocation alloc] initWithLatitude:-70.356920 longitude:0.557412]; // Antarctic
+    self.yourLocation = [[CLLocation alloc] initWithLatitude:-27.359575 longitude:-70.126271]; // Atacama Region, Chile
+    
+    //self.yourLocation = [[CLLocation alloc] initWithLatitude:40.753603 longitude:-73.990502]; // New York
     //self.yourLocation = [[CLLocation alloc] initWithLatitude:55.788906 longitude:12.590191]; // Any area
     
     
@@ -49,10 +54,10 @@
    
     
     CGFloat yourLocationBearing = [self.latestLocation bearingToLocationRadian:self.yourLocation];
-    
+    NSLog(@"yourLocationBearing %f", [self radiansToDegrees:yourLocationBearing] );
     CGFloat originalHeading = yourLocationBearing - [self degreesToRadians: newHeading.trueHeading];
     CGFloat heading = originalHeading;
-    NSLog(@"originalHeading => %f", [self radiansToDegrees: originalHeading]);
+   // NSLog(@"originalHeading => %f", [self radiansToDegrees: originalHeading]);
     switch (UIDevice.currentDevice.orientation) {
         case UIDeviceOrientationFaceDown:
             heading = -originalHeading;
